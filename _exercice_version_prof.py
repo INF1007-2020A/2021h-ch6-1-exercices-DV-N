@@ -33,7 +33,7 @@ def best_grades(student_grades: dict) -> dict:
     for key, value in student_grades.items():
         average = sum(value)/len(value)
 
-        if len(best_student) == 0 or list(best_student.values())[0] < average:
+        if len(best_student) == 0 or list(best_student.values())[0] < average: #ecq nouvel etudiant est meilleur, if seulement utile pour 1'ere iteration de la boucle
             best_student = {key: average}
 
     return best_student
@@ -48,9 +48,9 @@ def frequence(sentence: str) -> dict:
     for letter in sentence:
         frequency[letter] = sentence.count(letter)
 
-    sorted_keys = sorted(frequency, key=frequency.__getitem__, reverse=True)
+    sorted_keys = sorted(frequency, key=frequency.__getitem__, reverse=True) # reverse=True inverse d/croisssant, __get_item
     for key in sorted_keys:
-        if frequency[key] > 5:
+        if frequency[key] > 5: #5 valeur
             print(f"Le caractère {key} revient {frequency[key]} fois.")
 
     return frequency
@@ -86,7 +86,7 @@ def main() -> None:
     my_list = [3, 3, 5, 6, 1, 1]
     print(f"Ma liste contient-elle des doublons? {contains_doubles(my_list)}")
 
-    grades = {"Bob": [90, 65, 20], "Alice": [85, 75, 83]}
+    grades = {"Bob": [90, 65, 20], "Meredith" : [90, 90, 90], "Alice": [85, 75, 83]}
     best_student = best_grades(grades)
     print(f"{list(best_student.keys())[0]} a la meilleure moyenne: {list(best_student.values())[0]}")
 
